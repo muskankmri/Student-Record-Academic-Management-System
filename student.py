@@ -1,5 +1,5 @@
 from utilities import read_number, read_non_empty, find_student, print_line
-def add_student(students):
+def add_student(students):             #add a new student
     student_id=read_number("Enter student ID: ")
     if find_student(students, student_id) is not None:
         print("Student ID already exists.")
@@ -15,7 +15,7 @@ def add_student(students):
     }
     students.append(student)
     print("Student added successfully.")
-def display_students(students):
+def display_students(students):        #display all students
     print_line()
     print("STUDENT LIST")
     print_line()
@@ -29,7 +29,7 @@ def display_students(students):
             "| Branch:", student["branch"],
             "| Semester:", student["semester"]
         )
-def search_student(students):
+def search_student(students):          #search for a student using ID
     student_id=read_number("Enter student ID: ")
     student=find_student(students, student_id)
     if student is None:
@@ -39,7 +39,7 @@ def search_student(students):
         print("Name:", student["name"])
         print("Branch:", student["branch"])
         print("Semester:", student["semester"])
-def search_by_name(students):
+def search_by_name(students):               #search for a student using name
     name=read_non_empty("Enter student name: ")
     found=False
     for student in students:
@@ -51,7 +51,7 @@ def search_by_name(students):
             found=True
     if not found:
         print("Student not found.")
-def update_student(students):
+def update_student(students):                 #update existing student information
     student_id=read_number("Enter student ID to update: ")
     student=find_student(students, student_id)
     if student is None:
@@ -61,7 +61,7 @@ def update_student(students):
     student["branch"]=read_non_empty("Enter new branch: ")
     student["semester"]=read_number("Enter new semester: ")
     print("Student updated successfully.")
-def delete_student(students,enrollment,student_marks,attendance):
+def delete_student(students,enrollment,student_marks,attendance):        #delete a student and their related records
     student_id=read_number("Enter student ID to delete: ")
     student=find_student(students, student_id)
     if student is None:
@@ -75,7 +75,7 @@ def delete_student(students,enrollment,student_marks,attendance):
     if student_id in attendance:
         del attendance[student_id]
     print("Student deleted successfully.")
-def student_menu(students,enrollment,student_marks,attendance):
+def student_menu(students,enrollment,student_marks,attendance):       #display the student management menu
     while True:
         print_line()
         print("STUDENT MANAGEMENT")

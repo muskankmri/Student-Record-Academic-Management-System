@@ -1,3 +1,5 @@
+#sample data for the management system
+
 students=[
     {"id": 101, "name": "Rahul", "branch": "CSE", "semester": 1},
     {"id": 102, "name": "Ananya", "branch": "CSE", "semester": 1},

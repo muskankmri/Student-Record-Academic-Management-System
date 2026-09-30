@@ -1,5 +1,5 @@
 from utilities import read_number, find_student, find_course, print_line
-def get_grade(marks):
+def get_grade(marks):                #assign a grade based on marks
     if marks>=90:
         return"S"
     elif marks>=80:
@@ -14,7 +14,7 @@ def get_grade(marks):
         return"E"
     else:
         return"F"
-def enter_marks(students, courses, enrollment, student_marks):
+def enter_marks(students, courses, enrollment, student_marks):        #enter and store marks for a student
     student_id=read_number("Enter student ID: ")
     if find_student(students, student_id) is None:
         print("Student not found.")
@@ -34,7 +34,7 @@ def enter_marks(students, courses, enrollment, student_marks):
         student_marks[student_id]={}
     student_marks[student_id][course_code]=marks
     print("Marks entered successfully.")
-def display_marks(students, courses, student_marks):
+def display_marks(students, courses, student_marks):   #display marks and grades of all students
     print_line()
     print("MARKS LIST")
     print_line()
@@ -45,7 +45,7 @@ def display_marks(students, courses, student_marks):
             for course_code in student_marks[student_id]:
                 marks = student_marks[student_id][course_code]
                 print(course_code, ":", marks, "Grade:", get_grade(marks))
-def student_performance(students, student_marks):
+def student_performance(students, student_marks):              #calculate and display the performance of a student
     student_id=read_number("Enter student ID: ")
     if find_student(students, student_id) is None:
         print("Student not found.")
@@ -68,7 +68,7 @@ def student_performance(students, student_marks):
     print("Highest Marks:", highest)
     print("Lowest Marks:", lowest)
     print("Overall Grade:", get_grade(average))
-def marks_menu(students, courses, enrollment, student_marks):
+def marks_menu(students, courses, enrollment, student_marks):        #display the marks management menu
     while True:
         print_line()
         print("MARKS MANAGEMENT")

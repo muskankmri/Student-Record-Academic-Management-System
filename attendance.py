@@ -1,5 +1,5 @@
 from utilities import read_number,find_student,find_course,print_line
-def enter_attendance(students, courses, enrollment, attendance):
+def enter_attendance(students, courses, enrollment, attendance):     #Enter and store attendance for a student
     student_id=read_number("Enter student ID: ")
     if find_student(students, student_id) is None:
         print("Student not found.")
@@ -23,9 +23,9 @@ def enter_attendance(students, courses, enrollment, attendance):
         attendance[student_id] = {}
     attendance[student_id][course_code] = (attended, total)
     print("Attendance entered successfully.")
-def calculate_percentage(attended, total):
+def calculate_percentage(attended, total):  #calculate attendance percentage
     return (attended / total) * 100
-def display_attendance(students, attendance):
+def display_attendance(students, attendance):  #display attendance records of students
     print_line()
     print("ATTENDANCE LIST")
     print_line()
@@ -46,7 +46,7 @@ def display_attendance(students, attendance):
                     round(percentage, 2),
                     "%"
                 )
-def low_attendance(students, attendance):
+def low_attendance(students, attendance):    #find students whose attendance is below the given threshold
     threshold=read_number("Enter attendance threshold: ")
     print_line()
     print("LOW ATTENDANCE STUDENTS")

@@ -6,7 +6,7 @@ from marks import marks_menu
 from attendance import attendance_menu
 from analysis import analysis_menu
 from searching import searching_menu
-def main():
+def main():                                      #Main menu of student record and academic management system
     while True:
         print_line()
         print("STUDENT RECORD AND ACADEMIC MANAGEMENT SYSTEM")
@@ -18,8 +18,8 @@ def main():
         print("5. Performance Analysis")
         print("6. Search and Data Operations")
         print("7. Exit")
-        choice=read_number("Enter your choice: ")
-        if choice==1:
+        choice=read_number("Enter your choice: ")  
+        if choice==1:                                              #open the selected management module
             student_menu(students, enrollment, student_marks, attendance)
         elif choice==2:
             course_menu(students, courses, enrollment)
@@ -31,10 +31,11 @@ def main():
             analysis_menu(students, student_marks)
         elif choice==6:
             searching_menu(students, student_marks)
-        elif choice==7:
+        elif choice==7:                                             #exit the application           
             print("Goodbye!")
             break
         else:
             print("Invalid choice. Please select 1 to 7.")
+#start the program when this file is executed            
 if __name__=="__main__":
     main()

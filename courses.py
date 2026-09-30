@@ -1,5 +1,5 @@
 from utilities import read_number,read_non_empty,find_student,find_course,print_line
-def add_course(courses):
+def add_course(courses):   #add a new course
     course_code=read_non_empty("Enter course code: ").upper()
     if find_course(courses, course_code) is not None:
         print("Course already exists.")
@@ -8,7 +8,7 @@ def add_course(courses):
     credits=read_number("Enter credits: ")
     courses.append((course_code, course_name, credits))
     print("Course added successfully.")
-def display_courses(courses):
+def display_courses(courses):   #display all available courses
     print_line()
     print("COURSE LIST")
     print_line()
@@ -21,7 +21,7 @@ def display_courses(courses):
             "| Name:", course[1],
             "| Credits:", course[2]
         )
-def assign_course(students, courses, enrollment):
+def assign_course(students, courses, enrollment):   #assign a course to a student
     student_id=read_number("Enter student ID: ")
     if find_student(students, student_id) is None:
         print("Student not found.")
@@ -37,7 +37,7 @@ def assign_course(students, courses, enrollment):
         return
     enrollment[student_id].append(course_code)
     print("Course assigned successfully.")
-def show_student_courses(students, courses, enrollment):
+def show_student_courses(students, courses, enrollment):   #display courses assigned to a student
     student_id=read_number("Enter student ID: ")
     if find_student(students, student_id) is None:
         print("Student not found.")
@@ -59,7 +59,7 @@ def show_student_courses(students, courses, enrollment):
             )
             total_credits+=course[2]
     print("Total Credits:", total_credits)
-def course_menu(students, courses, enrollment):
+def course_menu(students, courses, enrollment):  #display the course management menu
     while True:
         print_line()
         print("COURSE MANAGEMENT")
